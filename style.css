@@ -1,0 +1,303 @@
+/* Quietly To Myself — colors taken from the book cover */
+:root {
+  --navy: #022742;
+  --navy-soft: #2c4a66;
+  --parchment: #fcf4e2;
+  --paper: #fffaf0;
+  --ink: #1c1c1c;
+  --muted: #5a5a5a;
+  --sticky: #f7e98a;
+  --serif: "Libre Baskerville", Baskerville, Georgia, "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+img { max-width: 100%; height: auto; }
+
+a { color: var(--navy-soft); }
+a:hover { color: var(--navy); }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem 1.5rem;
+  padding: .7rem 1.5rem;
+  background: rgba(255, 250, 240, .95);
+  border-bottom: 1px solid #e6dcc4;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  color: var(--navy);
+  font-weight: 700;
+  text-decoration: none;
+}
+.site-header nav { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; }
+.site-header nav a {
+  color: var(--navy-soft);
+  text-decoration: none;
+  font-size: .9rem;
+}
+.site-header nav a:hover { text-decoration: underline; }
+
+/* ---------- Hero ---------- */
+.hero {
+  min-height: clamp(26rem, 75vh, 44rem);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 6vh 1rem 4rem;
+  background: url("images/landscape.jpg") center 10% / cover no-repeat, #c9d3dc;
+  text-align: center;
+}
+.hero h1 {
+  margin: 0;
+  color: var(--navy);
+  font-size: clamp(3rem, 10vw, 6.5rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -.01em;
+  text-shadow: 0 0 12px rgba(255, 245, 225, .8), 0 0 2px rgba(255, 255, 255, .9);
+}
+.hero .subtitle {
+  margin: 1.2rem 0 0;
+  color: var(--navy);
+  font-size: clamp(1.1rem, 2.6vw, 1.6rem);
+  line-height: 1.35;
+  text-shadow: 0 0 8px rgba(255, 245, 225, .9);
+}
+.hero .byline {
+  margin: 1.4rem 0 0;
+  color: var(--navy);
+  font-size: clamp(.9rem, 1.8vw, 1.1rem);
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px rgba(255, 245, 225, .9);
+}
+
+/* ---------- Content cards (like the back cover's white frame) ---------- */
+main {
+  max-width: 62rem;
+  margin: -3rem auto 0;
+  padding: 0 1rem 3rem;
+  position: relative;
+}
+.card {
+  background: var(--paper);
+  border: 1px solid #e6dcc4;
+  outline: 4px solid #fff;
+  outline-offset: -12px;
+  padding: 2.5rem clamp(1.25rem, 5vw, 3.5rem);
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+}
+.card h2 {
+  margin-top: 0;
+  color: var(--navy);
+  font-size: 1.35rem;
+  line-height: 1.4;
+}
+
+/* Intro: cover + blurb */
+.intro {
+  display: grid;
+  grid-template-columns: minmax(0, 18rem) 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+.cover { position: relative; display: block; }
+.cover img {
+  display: block;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, .3);
+}
+
+/* Questions */
+.questions {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: .75rem;
+}
+.questions li {
+  background: var(--sticky);
+  padding: .8rem 1rem;
+  font-style: italic;
+  color: #3b3416;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .15);
+}
+.questions li:nth-child(odd)  { transform: rotate(-.8deg); }
+.questions li:nth-child(even) { transform: rotate(.7deg); }
+.pull {
+  text-align: center;
+  color: var(--navy);
+  font-size: 1.6rem;
+  font-style: italic;
+  margin: 1.5rem 0;
+}
+
+/* Author */
+.author {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* Contact */
+.contact { text-align: center; }
+.email { font-size: 1.15rem; }
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  text-align: center;
+  padding: 1rem 1rem 3rem;
+  color: var(--muted);
+  font-size: .85rem;
+}
+.site-footer p { margin: .5rem 0 0; }
+
+/* Book details */
+.details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: .2rem 1.25rem;
+  margin: 1.5rem 0;
+  padding: 1rem 0 0;
+  border-top: 1px solid #e6dcc4;
+  font-size: .9rem;
+}
+.details dt { color: var(--muted); }
+.details dd { margin: 0; }
+.button {
+  display: inline-block;
+  padding: .6rem 1.2rem;
+  background: var(--navy);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 3px;
+  font-size: .95rem;
+}
+.button:hover { background: var(--navy-soft); color: #fff; }
+.center { text-align: center; }
+.small { font-size: .85rem; color: var(--muted); }
+
+/* How the book works */
+.parts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.parts h3, .part {
+  color: var(--navy);
+  font-size: 1.05rem;
+  margin: 0 0 .5rem;
+}
+.parts h3 span, .part span {
+  display: block;
+  font-size: .75rem;
+  font-weight: 400;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.parts p { font-size: .95rem; margin: 0; }
+
+/* Table of contents */
+.part {
+  margin-top: 2.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e6dcc4;
+}
+.toc { padding-left: 2rem; margin: .5rem 0; }
+.toc.front { list-style: none; padding-left: 0; }
+.toc li { margin: 0 0 1rem; font-weight: 700; color: var(--navy); }
+.toc li::marker { color: var(--muted); font-weight: 400; }
+.toc a { color: var(--navy); }
+.toc blockquote {
+  margin: .25rem 0 0;
+  font-weight: 400;
+  font-style: italic;
+  font-size: .88rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.toc cite {
+  display: block;
+  font-style: normal;
+  font-size: .8rem;
+}
+.toc cite::before { content: "— "; }
+.toc cite i { font-style: italic; }
+
+/* Book epigraph */
+.epigraph blockquote {
+  margin: 0 auto;
+  max-width: 38rem;
+  font-style: italic;
+  color: var(--navy);
+}
+.epigraph footer {
+  margin-top: 1rem;
+  text-align: right;
+  font-style: normal;
+  font-size: .9rem;
+  color: var(--muted);
+}
+.epigraph footer::before { content: "— "; }
+.epigraph footer cite { font-style: italic; }
+
+/* Early readers */
+.feedback { margin-bottom: 1.25rem; }
+.feedback li { font-style: normal; }
+
+/* Excerpt page */
+.hero-short {
+  min-height: 0;
+  padding: 3rem 1rem 6rem;
+  background-position: center 25%;
+}
+.hero-short h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); }
+.hero-short .byline { margin: 0 0 1rem; letter-spacing: .15em; font-size: .85rem; }
+.chapter { max-width: 44rem; margin: 0 auto 2rem; }
+.chapter p { margin: 0 0 1rem; }
+.chapter h2 { margin-top: 2.5rem; }
+.chapter-epigraph {
+  margin: 0 0 2rem;
+  text-align: center;
+  font-style: italic;
+  color: var(--navy);
+}
+.chapter-end { text-align: center; margin: 2rem 0 1rem !important; }
+.site-header nav a[aria-current] { color: var(--navy); font-weight: 700; }
+
+/* ---------- Small screens ---------- */
+@media (max-width: 700px) {
+  .site-header { justify-content: center; }
+  .hero { min-height: 36rem; padding-top: 2.5rem; background-position: 50% 100%; }
+  .intro, .author { grid-template-columns: 1fr; }
+  .cover { max-width: 16rem; margin: 0 auto; }
+  .author img { max-width: 9rem; margin: 0 auto; }
+  .author h2 { text-align: center; }
+}
